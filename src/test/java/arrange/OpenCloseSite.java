@@ -14,12 +14,13 @@ public class OpenCloseSite {
     static WebDriver webDriver;
     public static WebDriver openSite(String url){
         webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();;
         webDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         webDriver.get(url);
         return webDriver;
     }
     public static void closeSite(WebDriver webDriver) throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         webDriver.close();
     }
 }

@@ -3,9 +3,12 @@ package assertion;
 import action.OperationOnSite;
 import arrange.OpenCloseSite;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -16,6 +19,7 @@ import static org.testng.Assert.*;
  */
 public class OperationOnSiteTest {
     WebDriver webDriver;
+    List<WebElement> webElementList;
 
     @BeforeMethod
     public void setUp() {
@@ -23,7 +27,9 @@ public class OperationOnSiteTest {
     }
 
     @Test
-    public void testGetWebElementById() {
+    public void testGetWebElementListById() {
+        OperationOnSite operationOnSite = new OperationOnSite(webDriver);
+        webElementList = operationOnSite.getWebElementList("//a[contains(@href, \"wikipedia.org\")][@class='link-box']");
     }
 
     @AfterMethod
