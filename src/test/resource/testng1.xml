@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="WikiTest2" verbose="1" >
+    <test name="NavigateTest" >
+        <groups>
+            <run>
+                <include name="G1"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="assertion.NavigateSiteTest"/>
+        </classes>
+    </test>
+
+    <test name="OperationTest">
+        <groups>
+            <run>
+                <include name="G2"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="assertion.OperationOnSiteTest"/>
+        </classes>
+    </test>
+</suite>
