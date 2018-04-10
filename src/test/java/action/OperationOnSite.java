@@ -30,6 +30,10 @@ public class OperationOnSite {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public void webElementClick(String xpath) {
+        webDriver.findElement(By.xpath(xpath)).click();
+    }
+
     public List<WebElement> getWebElementList(String xpath) {
         webElementList = webDriver.findElements(By.xpath(xpath));
         printParameter();
@@ -39,7 +43,7 @@ public class OperationOnSite {
     public void printParameter() {
         for (WebElement element : webElementList) {
             LOGGER.setLevel(Level.FINE);
-            LOGGER.info("Title: " + element.getAttribute("title")+", href: "+element.getAttribute("href"));
+            LOGGER.info("Title: " + element.getAttribute("title") + ", href: " + element.getAttribute("href"));
 
         }
 
