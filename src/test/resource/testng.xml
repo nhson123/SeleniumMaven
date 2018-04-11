@@ -12,4 +12,9 @@
             <class name="assertion.OperationOnSiteTest"/>
         </classes>
     </test>
+    <test name="ChangeSiteTest" >
+        <classes>
+            <class name="assertion.changeSiteTest" />
+        </classes>
+    </test>
 </suite>
