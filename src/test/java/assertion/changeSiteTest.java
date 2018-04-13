@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Package: assertion
@@ -21,7 +22,7 @@ public class changeSiteTest {
     @BeforeTest
     public void setUp()throws InterruptedException {
         webDriver = OpenCloseSite.openSite("https://www.anecon.com");
-        Thread.sleep(1000);
+        webDriver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 
     }
     @Test

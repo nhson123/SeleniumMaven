@@ -17,4 +17,9 @@
             <class name="assertion.changeSiteTest" />
         </classes>
     </test>
+    <test name="DataProviderTest" >
+        <classes>
+            <class name="assertion.DataProviderMassTest" />
+        </classes>
+    </test>
 </suite>

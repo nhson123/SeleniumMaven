@@ -17,12 +17,12 @@ public class OpenCloseSite {
         webDriver = new ChromeDriver();
         //webDriver = new FirefoxDriver();
         webDriver.manage().window().maximize();;
-        webDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         webDriver.get(url);
         return webDriver;
     }
     public static void closeSite(WebDriver webDriver) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         webDriver.close();
     }
 }

@@ -3,6 +3,7 @@ package assertion;
 import arrange.OpenCloseSite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -15,11 +16,13 @@ import java.util.List;
  */
 public class BaseTest {
     WebDriver webDriver;
+    public WebDriverWait wait;
     List<WebElement> webElementList;
 
     @BeforeMethod (alwaysRun = true)
     public void setUp() throws InterruptedException {
         webDriver = OpenCloseSite.openSite("https://www.wikipedia.org/");
+        wait = new WebDriverWait(webDriver,5);
         Thread.sleep(1000);
     }
 

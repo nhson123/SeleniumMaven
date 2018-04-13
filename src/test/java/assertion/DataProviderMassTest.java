@@ -2,6 +2,9 @@ package assertion;
 
 import arrange.DataProviderUtil;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -15,8 +18,8 @@ public class DataProviderMassTest extends BaseTest {
     @Test(dataProvider = "languageData", dataProviderClass = DataProviderUtil.class)
     public void languageDifferTest(String xpath, String logoText) throws InterruptedException {
         webDriver.findElement(By.xpath(xpath)).click();
-        Thread.sleep(1000);
-        assertTrue(logoText.equals(webDriver.findElement(By.xpath("//*[@id='p-logo']/a")).getAttribute("title")));
+        String expecteText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#p-logo >a"))).getAttribute("title");
+        assertTrue(logoText.equals(expecteText));
         webDriver.navigate().back();
     }
 
