@@ -23,6 +23,7 @@ public class OpenCloseSite {
     }
     public static void closeSite(WebDriver webDriver) throws InterruptedException {
         Thread.sleep(1000);
-        webDriver.close();
+        webDriver.close(); // close the window that the driver focus of
+        webDriver.quit(); // call Dispose() to close all windows and safty end of the session
     }
 }

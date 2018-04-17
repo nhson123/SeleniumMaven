@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class OperationOnSite {
     WebDriver webDriver;
     List<WebElement> webElementList;
+    WebElement webElement;
     Logger LOGGER = Logger.getLogger("");
 
 
@@ -24,9 +25,9 @@ public class OperationOnSite {
 
     }
 
-    public WebElement getWebElementById(String xpath) {
+    public WebElement getWebElementById(String id) {
 
-        return webDriver.findElement(By.xpath(xpath));
+        return webDriver.findElement(By.id(id));
     }
 
     public void webElementClick(String xpath) {
@@ -38,6 +39,13 @@ public class OperationOnSite {
         webElementList = webDriver.findElements(By.xpath(xpath));
         printParameter();
         return webElementList;
+    }
+    public WebElement getWebElementByXpath(String xpath){
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public void setWebElementSendKey(WebElement webElement, String value){
+        webElement.sendKeys(value);
     }
 
     public void printParameter() {

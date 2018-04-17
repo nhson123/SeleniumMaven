@@ -4,6 +4,7 @@ import action.OperationOnSite;
 import arrange.OpenCloseSite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -24,6 +25,15 @@ public class OperationOnSiteTest extends BaseTest {
     public void testGetWebElementListById() {
         OperationOnSite operationOnSite = new OperationOnSite(webDriver);
         webElementList = operationOnSite.getWebElementList("//a[contains(@href, \"wikipedia.org\")][@class='link-box']");
+    }
+    @Test(groups = "G2")
+    public void testSelectionSendkey(){
+        OperationOnSite operationOnSite = new OperationOnSite(webDriver);
+        Select select = new Select(operationOnSite.getWebElementById("searchLanguage"));
+        select.selectByValue("vi");
+        operationOnSite.setWebElementSendKey(operationOnSite.getWebElementById("searchInput"),"Hồ chí minh");
+        operationOnSite.getWebElementByXpath("//*[@id=\"search-form\"]/fieldset/button/i").click();
+        assertTrue("Hồ Chí Minh".equals(operationOnSite.getWebElementByXpath("//*[@id=\"firstHeading\"]").getText()));
     }
 
 
