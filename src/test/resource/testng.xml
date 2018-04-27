@@ -22,4 +22,5 @@
             <class name="assertion.DataProviderMassTest" />
         </classes>
     </test>
+
 </suite>
